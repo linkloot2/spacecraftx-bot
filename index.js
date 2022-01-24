@@ -54,7 +54,7 @@
 
           for (let i = 0; i < (energyMax-energyCurrent)/10; ++i) {
             plusEnergyBtn.click();
-            await new Promise((res) => setTimeout(res, randomInt(1, 2) * 1000));
+            await new Promise((res) => setTimeout(res, 300));
           }
 
           // Find Exchange button
