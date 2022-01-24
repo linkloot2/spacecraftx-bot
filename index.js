@@ -40,7 +40,7 @@
           .split("/")
           .map(Number);
 
-        if (energyCurrent < energyMax - 100 && SCIW > 10) {
+        if (energyCurrent < energyMax - 500 && SCIW > 50) {
           energyBtn.click();
           await new Promise((res) => setTimeout(res, randomInt(5, 15) * 1000));
 
@@ -52,7 +52,7 @@
               )
           );
 
-          for (let i = 0; i < Math.min(SCIW, 10); ++i) {
+          for (let i = 0; i < (energyMax-energyCurrent)/10; ++i) {
             plusEnergyBtn.click();
             await new Promise((res) => setTimeout(res, randomInt(1, 2) * 1000));
           }
@@ -106,8 +106,8 @@
           )
           .innerText.split("/");
 
-        // If current compensation less than 10%
-        if (energyCurrent / energyMax < 0.1) {
+        // If current compensation less than 50%
+        if (energyCurrent / energyMax < 0.5) {
           const buttonRepair = [...document.querySelectorAll("button")].find(
             (button) =>
               button.innerText === "REPAIR" &&
