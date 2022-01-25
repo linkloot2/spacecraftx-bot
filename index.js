@@ -16,18 +16,6 @@
       await new Promise((res) => setTimeout(res, randomInt(5, 15) * 1000));
 
       /**
-       * Coins
-       */
-      const coinCounter = [...document.querySelectorAll("div")].find((div) =>
-        [...div.classList].some((className) =>
-          className.includes("Header_headerLine")
-        )
-      );
-      const [SCIC, SCID, SCIW] = [...coinCounter.children].map(
-        (child) => +child.textContent
-      );
-
-      /**
        * Restore energy
        */
       try {
@@ -40,7 +28,7 @@
           .split("/")
           .map(Number);
 
-        if (energyCurrent < energyMax - 500 && SCIW > 50) {
+        if (energyCurrent < energyMax - 90) {
           energyBtn.click();
           await new Promise((res) => setTimeout(res, randomInt(5, 15) * 1000));
 
